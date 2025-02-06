@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUM</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    }
+
+    .center-wrap {
+      text-align: center;
+      margin: 2em auto;
+    }
+
+    .button {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      text-decoration: none;
+      font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+      font-weight: 600;
+
+      /* 使用相對單位調整字體大小 */
+      font-size: calc(1rem + 0.5vw); /* 字體大小會根據視窗寬度調整 */
+      
+      padding: calc(0.5em + 0.2vw) calc(1em + 0.5vw); /* 按鈕內邊距也根據視窗寬度調整 */
+      
+      color: #e87722;
+      border: 0.12em solid #e87722;
+      border-radius: 2em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .button:before,
+    .button:after {
+      content: "";
+      position: absolute;
+      top: -1.5em;
+      z-index: -1;
+      width: 200%;
+      
+      /* 保持圓形比例 */
+      aspect-ratio: 1; 
+      
+      border-radius: 40%;
+      background-color: rgba(232, 119, 34, 0.25);
+      transition: transform 2s ease, background-color 2s ease;
+    }
+    
+    .button:before {
+      left: -80%;
+      transform: translate3d(0, 5em, 0) rotate(-340deg);
+    }
+    
+    .button:after {
+      right: -80%;
+      transform: translate3d(0, 5em, 0) rotate(390deg);
+    }
+    
+    .button:hover,
+    .button:focus {
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 calc(10px + 1vw) rgba(232, 119, 34, 0.8); /* 動態陰影大小 */
+    }
+    
+    .button:hover:before,
+    .button:hover:after,
+    .button:focus:before,
+    .button:focus:after {
+      transform: none;
+      background-color: rgba(232, 119, 34, 0.75);
+    }
+
+    /* 使用媒體查詢進一步優化小螢幕上的按鈕樣式 */
+    @media (max-width: 480px) {
+      .button {
+        font-size: calc(1rem + 1vw); /* 增加小螢幕上的字體大小 */
+        padding: calc(0.4em + 0.3vw) calc(0.8em + 0.5vw);
+        border-radius: calc(1.5em + 0.5vw); /* 調整圓角半徑 */
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .button {
+        font-size: calc(1rem + 0.3vw); /* 確保大螢幕不會過大 */
+        padding: calc(0.6em + 0.2vw) calc(1.2em + 0.4vw);
+        border-radius: calc(2em + 0.2vw);
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="center-wrap">
+    <a href="https://x.com/mriwu_u" class="button">Follow me on Twitter</a>
+  </div>
+</body>
+</html>
